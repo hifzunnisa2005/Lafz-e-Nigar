@@ -1,0 +1,152 @@
+/* Responsive styles for Urdu Word Processor */
+
+/* Ensure proper scrolling on mobile */
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 768px) {
+  /* Make toolbar more compact on mobile */
+  .toolbar-compact {
+    flex-wrap: wrap;
+    gap: 0.25rem;
+  }
+
+  /* Smaller buttons on mobile */
+  .toolbar-compact button {
+    min-width: 32px !important;
+    padding: 4px !important;
+  }
+
+  /* Stack controls vertically on very small screens */
+  @media (max-width: 480px) {
+    .toolbar-compact {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  }
+}
+
+/* Print styles for exported content */
+@media print {
+  @page {
+    margin: 2cm;
+  }
+
+  body {
+    font-family: 'Noto Nastaliq Urdu', serif;
+    direction: rtl;
+  }
+}
+
+/* Smooth scrolling */
+* {
+  scroll-behavior: smooth;
+}
+
+/* Better focus indicators for accessibility */
+*:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+}
+
+/* Selection colors */
+::selection {
+  background-color: #93c5fd;
+  color: #1e3a8a;
+}
+
+/* Webkit scrollbar styling */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* RTL List Styling for Urdu */
+[contenteditable] ul,
+[contenteditable] ol {
+  direction: rtl;
+  text-align: right;
+  padding-right: 40px;
+  padding-left: 0;
+  margin: 0.5em 0;
+}
+
+[contenteditable] ul li,
+[contenteditable] ol li {
+  direction: rtl;
+  text-align: right;
+  margin: 0.25em 0;
+  padding-right: 0.5em;
+}
+
+/* Bullet and number positioning for RTL */
+[contenteditable] ul {
+  list-style-type: disc;
+  list-style-position: inside;
+}
+
+[contenteditable] ol {
+  list-style-type: decimal;
+  list-style-position: inside;
+}
+
+/* Custom bullet styles */
+[contenteditable] ul li::marker {
+  unicode-bidi: isolate;
+  direction: ltr;
+  font-weight: bold;
+}
+
+[contenteditable] ol li::marker {
+  unicode-bidi: isolate;
+  direction: ltr;
+  font-weight: bold;
+}
+
+/* Nested lists */
+[contenteditable] ul ul,
+[contenteditable] ol ol,
+[contenteditable] ul ol,
+[contenteditable] ol ul {
+  margin-top: 0.25em;
+  margin-bottom: 0.25em;
+  padding-right: 20px;
+}
+
+/* Different bullet styles for nested levels */
+[contenteditable] ul ul {
+  list-style-type: circle;
+}
+
+[contenteditable] ul ul ul {
+  list-style-type: square;
+}
+
+/* List item spacing */
+[contenteditable] li {
+  line-height: 1.8;
+}
+
+/* Indented paragraphs */
+[contenteditable] p {
+  margin: 0.5em 0;
+}
